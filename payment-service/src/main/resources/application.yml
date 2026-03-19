@@ -11,6 +11,11 @@ spring:
       properties:
         spring.json.trusted.packages: "*"
         spring.json.value.default.type: payment.api.payment.service.model.OrderEvent
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.add.type.headers: false
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/paymentsdb}
     username: ${SPRING_DATASOURCE_USERNAME:admin}

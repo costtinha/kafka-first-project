@@ -11,6 +11,11 @@ spring:
       properties:
         spring.json.trusted.packages: "*"
         spring.json.value.default.type: email.api.email.service.model.OrderEvent
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.add.type.headers: false
 
 server:
   port: 8081

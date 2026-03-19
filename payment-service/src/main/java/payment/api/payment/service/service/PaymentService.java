@@ -20,6 +20,9 @@ public class PaymentService {
             log.warn("Payment already exists for order [{}] - Skipping",orderEvent.getOrderId());
             return;
         }
+        if(orderEvent.getCustomerEmail().contains("fail")){
+            throw new RuntimeException("Simulated payment failure");
+        }
         Payment payment = Payment.builder()
                 .processedAt(LocalDateTime.now())
                 .amount(orderEvent.getTotalAmount())
