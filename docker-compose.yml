@@ -64,6 +64,12 @@ services:
         condition: service_started
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      MAIL_HOST: sandbox.smtp.mailtrap.io
+      MAIL_PORT: 2525
+      MAIL_USERNAME: 3bd4a2dbac54f7
+      MAIL_PASSWORD: 219402dd216d80
+
+
 
 
   payment-service:
